@@ -50,11 +50,16 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+app.get("/attachments/:filename", (req, res) => {
+  let file = __dirname + "/attachments/" + req.params.filename;
+  res.download(file);
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
-var MailListener = require("mail-listener-next");
+var MailListener = require("mail-listener4");
 
 var mailListener = new MailListener({
   username: "stage.fst2018@gmail.com",
@@ -101,12 +106,14 @@ mailListener.on("mail", function(mail, seqno, attributes) {
   const newPost = new Post({
     title: mail.subject,
     text: mail.text,
-    desc: mail.text.substr(0, mail.text.indexOf("\n"))
+    desc: mail.text.substr(0, mail.text.indexOf("\n")),
+    attachments: []
   });
 
   if (mail.attachments && mail.attachments.length) {
     newPost.text += "\nPièce(s) jointe(s) :\n";
     mail.attachments.forEach(attach => {
+      newPost.attachments.push(attach.fileName);
       fs.writeFile("attachments/" + attach.fileName, attach.content, err => {
         if (err) throw err;
         console.log("Fichier sauvegardé.");

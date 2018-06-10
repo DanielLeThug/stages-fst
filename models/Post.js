@@ -15,6 +15,10 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  attachments: {
+    type: Array,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
