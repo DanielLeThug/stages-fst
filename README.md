@@ -62,3 +62,13 @@ npm run server
 npm run client
 # Le server se lance à l'adresse http://localhost:5000 et le client à l'adresse http://localhost:3000
 ```
+
+# A faire
+
+- Trouver une alternative au paquet mail-listener4 ou faire en sorte qu'il arrête de crasher
+- Filtrer les mails écoutés pour éviter de publier du spamm comme offre de stage
+- Utiliser le système d'authentification de l'UHA
+- Faire en sorte que seules les IMR/MIAGE aient accès au site en se servant de l'annuaire LDAP de l'UHA
+- Eventuellement griser les parties Informations personnelles quand on accède au formulaire sans être connecté (via URL)
+- Adapter le schéma du formulaire pour qu'il soit identique à la saisie sur pstage
+- Déployer le site sur les serveurs de l'UHA et déclencher la panique
