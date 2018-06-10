@@ -1,21 +1,21 @@
 # Prérequis
 
-* [Node.js](https://nodejs.org/)
-* [Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
-* [Git](https://git-scm.com/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+- [Node.js](https://nodejs.org/)
+- [Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
+- [Git](https://git-scm.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 # Visual Studio Code
 
 ## Extensions
 
-* Auto-Open Markdown Preview
-* Bracket Pair Colorizer
-* ES7 React/Redux/GraphQL/React-Native snippets
-* Live Server
-* Node.js Modules Intellisense
-* Prettier – Code formatter
-* vscode-icons
+- Auto-Open Markdown Preview
+- Bracket Pair Colorizer
+- ES7 React/Redux/GraphQL/React-Native snippets
+- Live Server
+- Node.js Modules Intellisense
+- Prettier – Code formatter
+- vscode-icons
 
 ## Paramètres
 
@@ -36,35 +36,29 @@
 
 # MongoDB
 
-Nom de la base : stages_fst
+Pour le développement, utilisez [mLab](https://mlab.com/) pour héberger gratuitement et simplement une base de données sur le cloud. (Pensez à changer les identifiants dans le dossier config du projet).
 
-Login : admin
+# Heroku
 
-Password : secret
+Nous avons utilisé [Heroku](https://www.heroku.com/) pour déployer notre application sur le cloud. Les scripts sont spécialiement créés pour cela et il faudra changer légèrement le code pour un déploiement sur une autre plateforme. (Notamment sur le fichier server.js pour permettre à Express d'utiliser les ressources statiques)
+
+# Extensions React/Redux
+
+Il existe des extensions pour les navigateurs Mozilla Firefox et Google Chrome pour React et Redux afin de faciliter le développement. Une fois installé, il suffit ensuite de décommenter la ligne 15 dans le fichier client/src/store.js pour pouvoir accéder aux variables en ouvrant les outils de développement du navigateur. (A enlever en mode production)
 
 # Lignes de commande
 
 ```bash
 # Node.js
-# Installer le CLI React globalement
-npm i -g create-react-app
-# Lancer le script qui lance le server avec nodemon
+# Installer les paquets du serveur
+npm install
+# Installer les paquets du client
+npm run client-install
+# Lancer le client et le server en même temps
+npm run dev
+# Lancer le serveur Express uniquement
 npm run server
-
-# Heroku
-# Se connecter
-heroku login
-# Cloner le dépot
-heroku git:clone -a stages-fst
-# Regarder les logs
-heroku logs
-
-# Git
-# Récupérer la dernière version du dépôt (avant de commit)
-git pull heroku master
-# Commit les modifications avec un message descriptif
-git commit -am 'envoi du mail'
-
-# Envoyer les modification sur le dépôt
-git push heroku master
+# Lancer le client React uniquement
+npm run client
+# Le server se lance à l'adresse http://localhost:5000 et le client à l'adresse http://localhost:3000
 ```
