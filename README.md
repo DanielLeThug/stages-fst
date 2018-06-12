@@ -53,7 +53,8 @@ Il existe des extensions pour les navigateurs Mozilla Firefox et Google Chrome p
 # Installer les paquets du serveur
 npm install
 # Installer les paquets du client
-npm run client-install
+cd client
+npm install
 # Lancer le client et le server en même temps
 npm run dev
 # Lancer le serveur Express uniquement
@@ -65,7 +66,7 @@ npm run client
 
 # A faire
 
-- Trouver une alternative au paquet mail-listener4 ou faire en sorte qu'il arrête de crasher
+- Tester la fiabilité de mail-listener-next et chercher une alternative si défaillant
 - Filtrer les mails écoutés pour éviter de publier du spamm comme offre de stage
 - Utiliser le système d'authentification de l'UHA
 - Faire en sorte que seules les IMR/MIAGE aient accès au site en se servant de l'annuaire LDAP de l'UHA
